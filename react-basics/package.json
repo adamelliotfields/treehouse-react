@@ -1,0 +1,41 @@
+{
+  "name": "react-basics",
+  "version": "0.0.1",
+  "main": "source/index.jsx",
+  "license": "MIT",
+  "dependencies": {
+    "prop-types": "^15.5.10",
+    "radium": "^0.19.1",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4"
+  },
+  "devDependencies": {
+    "babel-plugin-external-helpers": "^6.22.0",
+    "babel-preset-react": "^6.24.1",
+    "concurrently": "^3.4.0",
+    "cssnano": "^3.10.0",
+    "eslint": "^3.19.0",
+    "eslint-config-semistandard": "^11.0.0",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-config-standard-react": "^5.0.0",
+    "eslint-plugin-import": "^2.3.0",
+    "eslint-plugin-node": "^5.0.0",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-react": "^7.0.1",
+    "eslint-plugin-standard": "^3.0.1",
+    "livereload": "^0.6.2",
+    "rimraf": "^2.6.1",
+    "rollup": "^0.41.6",
+    "rollup-plugin-babel": "^2.7.1",
+    "rollup-plugin-commonjs": "^8.0.2",
+    "rollup-plugin-node-resolve": "^3.0.0",
+    "rollup-plugin-postcss": "^0.5.3",
+    "rollup-plugin-replace": "^1.1.1",
+    "rollup-watch": "^3.2.2"
+  },
+  "scripts": {
+    "build": "rollup --config rollup.config.js",
+    "watch": "concurrently \"rollup --config rollup.config.js --watch\" \"livereload build/bundle.js\"",
+    "clean": "rimraf build"
+  }
+}
