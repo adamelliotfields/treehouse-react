@@ -5,3 +5,8 @@ Get up and running with React, a JavaScript library for building user interfaces
 JSX  
 State Influencers  
 Components  
+
+### Instructions
+1. Download and extract the [zip](https://github.com/adamelliotfields/treehouse-react/raw/master/react-basics/react-basics.zip).
+2. Run `npm install` or `yarn install`.
+3. Run `npm run serve` or `yarn serve`.
