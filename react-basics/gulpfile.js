@@ -4,7 +4,6 @@ const sourcemaps = require('gulp-sourcemaps');
 
 // PostCSS
 const postcss = require('gulp-postcss');
-const atImport = require('postcss-import');
 const autoprefixer = require('autoprefixer');
 const cssnano = require('gulp-cssnano');
 const rename = require('gulp-rename');
@@ -27,7 +26,7 @@ const del = require('del');
 
 gulp.task('postcss:prod', () =>
   gulp.src('source/css/main.css')
-  .pipe(postcss([atImport(), autoprefixer()]))
+  .pipe(postcss([autoprefixer()]))
   .pipe(rename((path) => { path.basename = 'bundle'; }))
   .pipe(sourcemaps.init())
   .pipe(cssnano({ discardComments: { removeAll: true } }))
@@ -37,7 +36,7 @@ gulp.task('postcss:prod', () =>
 
 gulp.task('postcss:dev', () =>
   gulp.src('source/css/main.css')
-  .pipe(postcss([atImport(), autoprefixer()]))
+  .pipe(postcss([autoprefixer()]))
   .pipe(rename((path) => { path.basename = 'bundle'; }))
   .pipe(gulp.dest('build/css'))
 );
