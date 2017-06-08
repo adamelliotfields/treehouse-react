@@ -1,0 +1,39 @@
+{
+  "name": "react-animations",
+  "version": "0.0.1",
+  "main": "source/index.jsx",
+  "license": "MIT",
+  "dependencies": {
+    "immutable": "^3.8.1",
+    "prop-types": "^15.5.10",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
+    "react-transition-group": "^1.1.3"
+  },
+  "devDependencies": {
+    "autoprefixer": "^7.1.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babelify": "^7.3.0",
+    "browserify": "^14.4.0",
+    "budo": "^10.0.3",
+    "bundle-collapser": "^1.2.1",
+    "del": "^2.2.2",
+    "envify": "^4.0.0",
+    "gulp": "gulpjs/gulp.git#4.0",
+    "gulp-cssnano": "^2.1.2",
+    "gulp-postcss": "^7.0.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sourcemaps": "^2.6.0",
+    "gulp-uglify": "^3.0.0",
+    "uglifyify": "^3.0.4",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0"
+  },
+  "scripts": {
+    "start": "gulp watch",
+    "build": "gulp default",
+    "serve": "gulp serve",
+    "clear": "gulp clear"
+  }
+}
