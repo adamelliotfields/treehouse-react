@@ -1,9 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { List } from 'immutable';
 
 function Stats (props) {
-  const totalPlayers = props.players.length;
-  const totalScore = props.players.reduce((accumulator, player) => accumulator + player.score, 0);
+  // Immutable.List.size === Array.length
+  const totalPlayers = props.players.size;
+
+  // Starting index for reduce
+  const index = 0;
+  const totalScore = props.players.reduce((accumulator, player) => accumulator + player.get('score'), index);
 
   return (
     <table className='stats'>
@@ -22,7 +27,7 @@ function Stats (props) {
 }
 
 Stats.propTypes = {
-  players: PropTypes.array.isRequired
+  players: PropTypes.instanceOf(List).isRequired
 };
 
 export default Stats;

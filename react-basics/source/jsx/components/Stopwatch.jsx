@@ -9,13 +9,13 @@ class Stopwatch extends Component {
     this.tick = this.tick.bind(this);
   }
   handleClick () {
-    this.setState({ running: !this.state.running });
+    this.setState(({running}) => ({ running: !running }));
   }
   handleReset () {
     this.setState({ running: false, time: 0 });
   }
   tick () {
-    if (this.state.running) this.setState({ time: this.state.time += 1 });
+    if (this.state.running) this.setState(({time}) => ({ time: (time += 1) }));
   }
   componentDidMount () {
     this.interval = setInterval(this.tick, 1000);

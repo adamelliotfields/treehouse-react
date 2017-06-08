@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { List } from 'immutable';
 
 import Stats from './Stats.jsx';
 import Stopwatch from './Stopwatch.jsx';
@@ -16,7 +17,7 @@ function Header (props) {
 
 Header.propTypes = {
   title: PropTypes.string.isRequired,
-  players: PropTypes.array.isRequired
+  players: PropTypes.instanceOf(List).isRequired
 };
 
 export default Header;
