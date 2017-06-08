@@ -7,7 +7,7 @@
 *Note: All project folders include a zip of the project files. Each project includes a `package.json` and instructions on how to run the application.*  
 
 **[React Basics](https://github.com/adamelliotfields/treehouse-react/tree/master/react-basics)**  
-
+**[React Animations](https://github.com/adamelliotfields/treehouse-react/tree/master/react-animations)**  
 ### Other Topics
 
 [HTML](https://github.com/adamelliotfields/treehouse-html)  
