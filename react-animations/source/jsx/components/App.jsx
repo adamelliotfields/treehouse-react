@@ -1,44 +1,45 @@
 import React, { Component } from 'react';
 import { CSSTransitionGroup } from 'react-transition-group';
 import PropTypes from 'prop-types';
-import { List } from 'immutable';
+import { Map, List } from 'immutable';
+
+import Form from './Form.jsx';
 
 class App extends Component {
   constructor (props) {
     super(props);
-    this.handleChange = this.handleChange.bind(this);
+    this.handleAddGuest = this.handleAddGuest.bind(this);
     this.handleRemove = this.handleRemove.bind(this);
-    this.state = { names: this.props.names };
+    this.state = { names: this.props.initialNames };
   }
-  handleChange (event) {
-    if (event.key === 'Enter') {
-      this.setState({ names: this.state.names.push({ name: event.target.value }) });
-      event.target.value = '';
-    }
+  handleAddGuest (name) {
+    this.setState(({names}) => ({
+      names: names.push(Map({ name: name }))
+    }));
   }
   handleRemove (index) {
-    this.setState({ names: this.state.names.delete(index) });
-  }
-  shouldComponentUpdate () {
-    if (this.state !== this.prevState) return true;
+    this.setState(({names}) => ({
+      names: names.delete(index)
+    }));
   }
   render () {
     return (
       <div className='guest-list'>
         <h1>Guest List</h1>
-        <input type='text' placeholder='Invite Someone' value={this.state.newName} onKeyDown={this.handleChange} />
+        <Form onAddGuest={this.handleAddGuest} />
         <CSSTransitionGroup
           component='ul'
           transitionName='slide'
           transitionEnterTimeout={500}
           transitionLeaveTimeout={500}
           transitionAppearTimeout={500}
-          transitionAppear>
+          transitionAppear
+        >
 
           {this.state.names.map((name, index) => {
             return (
               <li key={index}>
-                {name.name}
+                {name.get('name')}
                 <button onClick={() => this.handleRemove(index)}>Remove</button>
               </li>
             );
@@ -51,7 +52,7 @@ class App extends Component {
 }
 
 App.propTypes = {
-  names: PropTypes.instanceOf(List).isRequired
+  initialNames: PropTypes.instanceOf(List).isRequired
 };
 
 export default App;
