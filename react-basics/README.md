@@ -6,6 +6,9 @@ JSX
 State Influencers  
 Components  
 
+### Notes
+[Immutable](https://github.com/facebook/immutable-js) Lists and Maps are used in place of JavaScript Arrays and Objects.  
+
 ### Instructions
 1. Download and extract the [zip](https://github.com/adamelliotfields/treehouse-react/raw/master/react-basics/react-basics.zip).
 2. Run `npm install` or `yarn install`.
