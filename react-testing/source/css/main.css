@@ -1,0 +1,154 @@
+@import 'font-awesome';
+
+@font-face {
+  font-family: 'FontAwesome';
+  src: url('../../node_modules/font-awesome/fonts/fontawesome-webfont.woff2?v=4.7.0') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Proxima Nova";
+  src: url("../../public/fonts/proxima-nova-regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-size: 16px;
+}
+
+.main {
+  border: 1px solid #ddd;
+  border-radius: 2rem;
+  font-family: "Proxima Nova", sans-serif;
+  margin: auto;
+  padding: 1rem;
+  max-width: 414px;
+}
+
+.container {
+  align-items: center;
+  color: #333;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+}
+
+.count {
+  color: #4078c0;
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.item {
+  flex: 1;
+  padding: 0.625rem;
+  text-align: center;
+}
+
+.photo {
+  flex: 2;
+  padding: 0.625rem;
+  text-align: center;
+}
+
+.photo img {
+  border-radius: 100%;
+  max-width: 100px;
+}
+
+.details {
+  flex: 6;
+  padding: 0.625rem;
+  text-align: center;
+}
+
+.bio {
+  color: #4078c0;
+  display: block;
+  margin: 0.5rem;
+}
+
+.full-name {
+  font-size: 1.5rem;
+  display: block;
+  line-height: 1.5em;
+}
+
+.location {
+  display: block;
+  font-size: 0.75rem;
+  padding: 0.5rem;
+}
+
+.heading {
+  color: black;
+  flex: 1;
+  font-weight: 400;
+  padding: 0.625rem;
+  text-align: center;
+}
+
+.name {
+  flex: 2;
+  padding: 0.625rem;
+  text-align: left;
+}
+
+.name div {
+  padding: 0.375rem 0;
+  text-overflow: ellipsis;
+}
+
+.language {
+  flex: 1;
+  padding: 0.625rem;
+  text-align: left;
+}
+
+.language div {
+  padding: 0.375rem 0;
+}
+
+.stars {
+  flex: 1;
+  padding: 0.625rem;
+  text-align: center;
+}
+
+.stars div {
+  padding: 0.375rem 0;
+}
+
+.link {
+  color: #4078c0;
+  text-decoration: none;
+}
+
+.follow {
+  flex: 2;
+  padding: 0.625rem;
+  text-align: center;
+}
+
+.follow button {
+  background: #ddd;
+  border: none;
+  border-radius: 2rem;
+  height: 2rem;
+  width: 100%;
+}
+
+.active-time {
+  flex: 4;
+  font-size: 0.875rem;
+  padding: 0.625rem;
+  text-align: center;
+}
+
+hr {
+  border: 1px solid #ddd;
+}
