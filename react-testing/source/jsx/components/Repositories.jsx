@@ -6,8 +6,10 @@ import Repository from './Repository.jsx';
 const sortByStars = (a, b) => (b.stargazers_count - a.stargazers_count);
 
 function Repositories (props) {
-  const repos = props.repos.sort(sortByStars)
-  .slice(0, props.results)
+  const { repositories, results } = props;
+
+  const repos = repositories.sort(sortByStars)
+  .slice(0, results)
   .map((repo) => (
     <Repository
       key={repo.id}
@@ -17,6 +19,7 @@ function Repositories (props) {
       stars={repo.stargazers_count}
     />
   ));
+
   return (
     <div>
       <div className='container'>
@@ -30,8 +33,8 @@ function Repositories (props) {
 }
 
 Repositories.propTypes = {
-  repos: PropTypes.array,
-  results: PropTypes.number.isRequired
+  repositories: PropTypes.array,
+  results: PropTypes.number
 };
 
 export default Repositories;

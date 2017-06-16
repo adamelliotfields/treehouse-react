@@ -2,15 +2,17 @@ import 'regenerator-runtime/runtime';
 import React from 'react';
 import { render } from 'react-dom';
 
+import '../css/main.css';
+
 import App from './containers/App.jsx';
 
-const Props = {
+const props = {
   username: 'adamelliotfields',
   results: 5,
-  token: '8b618edb824e5905b64b0f67e7b5e20989b1333e'
+  token: ''
 };
 
 render(
-  <App {...Props} />,
+  <App {...props} />,
   document.getElementById('root')
 );

@@ -2,18 +2,20 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 function UserStats (props) {
+  const { followers, following, public_repos } = props.user;
+
   return (
     <div className='container'>
       <div className='item'>
-        <span className='count'>{props.followers}</span>
+        <span className='count'>{followers}</span>
         Followers
       </div>
       <div className='item'>
-        <span className='count'>{props.following}</span>
+        <span className='count'>{following}</span>
         Following
       </div>
       <div className='item'>
-        <span className='count'>{props.repositories}</span>
+        <span className='count'>{public_repos}</span>
         Repositories
       </div>
     </div>
@@ -21,9 +23,7 @@ function UserStats (props) {
 }
 
 UserStats.propTypes = {
-  followers: PropTypes.number,
-  following: PropTypes.number,
-  repositories: PropTypes.number
+  user: PropTypes.object
 };
 
 export default UserStats;

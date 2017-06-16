@@ -9,50 +9,30 @@ import Footer from './Footer.jsx';
 
 const getLastPushDate = (repositories) => {
   if (repositories.length === 0) return moment();
+
   const pushDates = repositories.map((repo) => moment(repo.pushed_at));
 
   return moment.max(pushDates);
 };
 
 function Main (props) {
-  const Props = {
-    userDetails: {
-      image: props.user.avatar_url,
-      username: props.user.login,
-      name: props.user.name,
-      bio: props.user.bio,
-      location: props.user.location
-    },
-    userStats: {
-      following: props.user.following,
-      followers: props.user.followers,
-      repositories: props.user.public_repos
-    },
-    repositories: {
-      repos: props.repos,
-      results: props.results
-    },
-    footer: {
-      url: props.user.html_url,
-      lastActive: getLastPushDate(props.repos)
-    }
-  };
+  const { user, repositories, results } = props;
 
   return (
     <div className='main'>
-      <UserDetails {...Props.userDetails} />
-      <UserStats {...Props.userStats} />
+      <UserDetails user={user} />
+      <UserStats user={user} />
       <hr />
-      <Repositories {...Props.repositories} />
-      <Footer {...Props.footer} />
+      <Repositories repositories={repositories} results={results} />
+      <Footer user={user} lastActive={getLastPushDate(repositories)} />
     </div>
   );
 }
 
 Main.propTypes = {
-  user: PropTypes.object.isRequired,
-  repos: PropTypes.array,
-  results: PropTypes.number.isRequired
+  user: PropTypes.object,
+  repositories: PropTypes.array,
+  results: PropTypes.number
 };
 
 export default Main;

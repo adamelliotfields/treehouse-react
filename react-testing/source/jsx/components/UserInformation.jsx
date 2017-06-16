@@ -2,28 +2,31 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 function UserInformation (props) {
+  const { name, bio, location } = props;
+
   let locationElement;
-  if (props.location === '' || props.location === null) {
+  if (location === '' || location === null) {
     locationElement = null;
   } else {
     locationElement = (
       <span className='location'>
-        <i className='fa fa-map-pin' />&nbsp;
-        {props.location}
+        <i className='fa fa-map-pin' />
+        &nbsp;
+        {location}
       </span>
     );
   }
   return (
     <div className='details'>
-      <span className='full-name'>{props.name}</span>
-      <span className='bio'>{props.bio}</span>
+      <span className='full-name'>{name}</span>
+      <span className='bio'>{bio}</span>
       {locationElement}
     </div>
   );
 }
 
 UserInformation.propTypes = {
-  name: PropTypes.string.isRequired,
+  name: PropTypes.string,
   bio: PropTypes.string,
   location: PropTypes.string
 };

@@ -18,7 +18,7 @@ class App extends Component {
         followers: 0,
         public_repos: 0
       },
-      repos: []
+      repositories: []
     };
   }
   setStateAsync (state) {
@@ -32,29 +32,32 @@ class App extends Component {
 
     try {
       const user = await axios({ url: `${url}${this.props.username}`, headers: headers });
-      const repos = await axios({ url: user.data.repos_url, headers: headers });
+      const repositories = await axios({ url: user.data.repos_url, headers: headers });
 
-      await this.setStateAsync({ user: user.data, repos: repos.data });
+      await this.setStateAsync({ user: user.data, repositories: repositories.data });
     } catch (error) {
       if (error) console.log(error.message);
     }
   }
   render () {
-    const Props = {
-      user: this.state.user,
-      repos: this.state.repos,
-      results: this.props.results
+    const { user, repositories } = this.state;
+    const { results } = this.props;
+
+    const props = {
+      user: user,
+      repositories: repositories,
+      results: results
     };
 
     return (
-      <Main {...Props} />
+      <Main {...props} />
     );
   }
 }
 
 App.propTypes = {
-  username: PropTypes.string.isRequired,
-  results: PropTypes.number.isRequired
+  username: PropTypes.string,
+  results: PropTypes.number
 };
 
 export default App;

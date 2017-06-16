@@ -5,32 +5,18 @@ import UserInformation from './UserInformation.jsx';
 import UserImage from './UserImage.jsx';
 
 function UserDetails (props) {
-  const Props = {
-    userImage: {
-      image: props.image,
-      altText: `${props.username} avatar`
-    },
-    userInformation: {
-      name: props.name,
-      bio: props.bio,
-      location: props.location
-    }
-  };
+  const { avatar_url, login, name, bio, location } = props.user;
 
   return (
     <div className='container'>
-      <UserImage {...Props.userImage} />
-      <UserInformation {...Props.userInformation} />
+      <UserImage image={avatar_url} altText={`${login} avatar`} />
+      <UserInformation name={name} bio={bio} location={location} />
     </div>
   );
 }
 
 UserDetails.propTypes = {
-  image: PropTypes.string.isRequired,
-  username: PropTypes.string,
-  name: PropTypes.string.isRequired,
-  bio: PropTypes.string,
-  location: PropTypes.string
+  user: PropTypes.object
 };
 
 export default UserDetails;
