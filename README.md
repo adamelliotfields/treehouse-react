@@ -8,6 +8,8 @@
 
 **[React Basics](https://github.com/adamelliotfields/treehouse-react/tree/master/react-basics)**  
 **[React Animations](https://github.com/adamelliotfields/treehouse-react/tree/master/react-animations)**  
+**[React Testing](https://github.com/adamelliotfields/treehouse-react/tree/master/react-testing)**  
+
 ### Other Topics
 
 [HTML](https://github.com/adamelliotfields/treehouse-html)  
