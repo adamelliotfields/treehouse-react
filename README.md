@@ -9,7 +9,7 @@
 **[React Basics](https://github.com/adamelliotfields/treehouse-react/tree/master/react-basics)**  
 **[React Animations](https://github.com/adamelliotfields/treehouse-react/tree/master/react-animations)**  
 **[React Testing](https://github.com/adamelliotfields/treehouse-react/tree/master/react-testing)**  
-**[React Testing](https://github.com/adamelliotfields/treehouse-react/tree/master/react-data-fetching)**  
+**[React Data Fetching](https://github.com/adamelliotfields/treehouse-react/tree/master/react-data-fetching)**  
 
 ### Other Topics
 
