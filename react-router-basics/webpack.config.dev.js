@@ -1,12 +1,13 @@
 const webpack = require('webpack');
+const HTMLWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: [
-    './source/index.js'
+    './client/source/index.js'
   ],
   output: {
-    filename: 'bundle.js',
-    publicPath: '/js/'
+    filename: 'js/bundle.js',
+    publicPath: '/'
   },
   devtool: 'eval',
   module: {
@@ -27,7 +28,7 @@ module.exports = {
         exclude: /node_modules/,
         loader: 'babel-loader',
         query: {
-          presets: ['react', 'es2015', 'stage-3']
+          presets: ['react', 'stage-3', 'es2015']
         }
       }
     ]
@@ -37,12 +38,15 @@ module.exports = {
       'process.env': {
         NODE_ENV: JSON.stringify('development')
       }
+    }),
+    new HTMLWebpackPlugin({
+      template: './client/source/ejs/index.ejs'
     })
   ],
   devServer: {
     host: 'localhost',
     port: 8080,
     historyApiFallback: true,
-    contentBase: ['source/public']
+    contentBase: ['./client/source/icons']
   }
 };
