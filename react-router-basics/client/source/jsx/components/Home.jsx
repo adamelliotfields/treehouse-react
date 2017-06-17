@@ -8,6 +8,9 @@ class Home extends PureComponent {
     super(props);
     this.onSubmit = this.onSubmit.bind(this);
   }
+  componentDidMount () {
+    window.document.title = 'React Router Basics | Home';
+  }
   onSubmit (name, topic) {
     const { history } = this.props;
     const path = `teachers/${topic}/${name}`;
@@ -32,7 +35,7 @@ class Home extends PureComponent {
 }
 
 Home.propTypes = {
-  history: PropTypes.array.isRequired
+  history: PropTypes.object.isRequired
 };
 
 export default Home;
