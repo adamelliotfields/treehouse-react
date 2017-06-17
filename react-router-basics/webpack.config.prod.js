@@ -1,52 +1,52 @@
 const path = require('path');
 const webpack = require('webpack');
 const cssnano = require('cssnano');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   entry: [
-    './source/index.js'
+    './client/source/index.js'
   ],
   output: {
     filename: './js/bundle.js',
-    path: path.join(__dirname, 'build')
+    path: path.join(__dirname, 'client', 'build')
   },
   devtool: 'source-map',
   module: {
     rules: [
       {
         test: /\.css?$/,
-        use: [
-          {
-            loader: 'style-loader'
-          },
-          {
-            loader: 'css-loader',
-            options: {
-              importLoaders: 1
+        loader: ExtractTextPlugin.extract({
+          use: [
+            {
+              loader: 'css-loader',
+              options: {
+                importLoaders: 1
+              }
+            },
+            {
+              loader: 'postcss-loader',
+              options: {
+                sourceMap: true,
+                plugins: [
+                  cssnano({
+                    discardComments: {
+                      removeAll: true
+                    }
+                  })
+                ]
+              }
             }
-          },
-          {
-            loader: 'postcss-loader',
-            options: {
-              sourceMap: true,
-              plugins: [
-                cssnano({
-                  discardComments: {
-                    removeAll: true
-                  }
-                })
-              ]
-            }
-          }
-        ]
+          ]
+        })
       },
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,
         loader: 'babel-loader',
         query: {
-          presets: ['react', 'es2015', 'stage-3']
+          presets: ['react', 'stage-3', 'es2015']
         }
       }
     ]
@@ -61,8 +61,11 @@ module.exports = {
       comments: false,
       sourceMap: true
     }),
-    new CopyWebpackPlugin([
-      { from: 'source/public' }
+    new ExtractTextPlugin({
+      filename: './css/bundle.css'
+    }),
+    new CopyPlugin([
+      { from: 'client/source/icons' }
     ])
   ]
 };
