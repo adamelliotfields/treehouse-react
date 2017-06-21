@@ -11,6 +11,7 @@
 **[React Testing](https://github.com/adamelliotfields/treehouse-react/tree/master/react-testing)**  
 **[React Data Fetching](https://github.com/adamelliotfields/treehouse-react/tree/master/react-data-fetching)**  
 **[React Router Basics](https://github.com/adamelliotfields/treehouse-react/tree/master/react-router-basics)**  
+**[React Redux Applications](https://github.com/adamelliotfields/treehouse-react/tree/master/react-redux-applications)**  
 
 ### Other Topics
 
